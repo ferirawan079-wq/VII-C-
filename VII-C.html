@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>MTS Al Washliyah Kolam - VII C</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #007bff, #00c851, #ffffff);
+      background-size: 300% 300%;
+      animation: gradientBG 10s ease infinite;
+      overflow-x: hidden;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* LOGIN */
+    #loginPage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    #loginPage h1 {
+      font-size: 3.5em;
+      margin-bottom: 25px;
+      color: #fff;
+      text-shadow: 0 0 20px #00f, 0 0 40px #0f9;
+    }
+    #loginPage input {
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid #00f;
+      width: 350px;
+      font-size: 1.2em;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    #loginPage button {
+      padding: 15px 35px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #007bff, #00c851);
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.3em;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(0,123,255,0.8);
+    }
+    #loginPage button:hover { transform: scale(1.05); }
+    #loginError { margin-top: 10px; color: #ff8080; font-weight: bold; }
+
+    /* MAIN */
+    #mainContent { display: none; }
+    header {
+      text-align: center;
+      padding: 30px 20px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 0 0 15px #0ff, 0 0 25px #0f9;
+    }
+    h2 {
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 10px #0f0, 0 0 20px #09f;
+    }
+    section {
+      margin: 30px auto;
+      max-width: 1000px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(0,0,0,0.5);
+      box-shadow: 0 0 20px rgba(0,255,200,0.5);
+    }
+    ul { list-style: none; padding: 0; }
+    li { margin: 5px 0; font-size: 1.1em; }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table, th, td {
+      border: 1px solid #fff;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: rgba(0, 200, 100, 0.7);
+    }
+
+    /* QUIZ */
+    .quizBox {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .quizBox p {
+      font-size: 1.4em;
+      margin-bottom: 15px;
+    }
+    .quizBox input {
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid #00f;
+      width: 300px;
+      font-size: 1.1em;
+      text-align: center;
+    }
+    .quizBox button {
+      background: linear-gradient(90deg, #00c851, #007bff);
+      color: #fff;
+      padding: 12px 25px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1.1em;
+    }
+    .quizBox button:hover { background: linear-gradient(90deg, #007bff, #00c851); }
+    #quizResult { margin-top: 15px; font-size: 1.4em; font-weight: bold; }
+
+    /* PROGRESS BAR */
+    #progressBar {
+      width: 80%;
+      margin: 15px auto;
+      height: 25px;
+      background: #444;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    #progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #00f, #0f9);
+      transition: width 0.5s;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage">
+  <h1>✨ Selamat Datang ✨</h1>
+  <p>Masukkan Nama Lengkap untuk masuk ke Website Kelas VII C</p>
+  <input type="text" id="username" placeholder="Nama Lengkap">
+  <button onclick="login()">Masuk</button>
+  <p id="loginError"></p>
+</div>
+
+<!-- MAIN -->
+<div id="mainContent">
+  <header>
+    <h1>MTS Al Washliyah Kolam</h1>
+    <p>Website Kelas VII C - 🌌🕌</p>
+    <p id="welcome"></p>
+  </header>
+
+  <section>
+    <h2>Jadwal Pelajaran VII C</h2>
+    <table>
+      <tr><th>Hari</th><th>Jam</th><th>Mata Pelajaran</th></tr>
+      <tr><td>Senin</td><td>7.15-14.45</td><td>AR, BIN, VT, MM, SKI, UM, PKN, BIN, AR, BIG</td></tr>
+      <tr><td>Selasa</td><td>7.15-14.45</td><td>MD, IPS, BA, TIK, BA, HF, BIG, UM, PKN, MD</td></tr>
+      <tr><td>Rabu</td><td>7.15-14.45</td><td>ML, AA, SKI, VT, MM, SR, VT, MM, TAH, SR</td></tr>
+      <tr><td>Kamis</td><td>7.15-14.45</td><td>SL, BA, HF, VT, MM, PR, AR, BIN, AW, PR, MH</td></tr>
+      <tr><td>Jumat</td><td>7.15-14.45</td><td>NS, IPA, NS, IPA, MD</td></tr>
+      <tr><td>Sabtu</td><td>7.15-11.30</td><td>Senam & Penampilan Bakat</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Jadwal Piket VII C</h2>
+    <table>
+      <tr><th>Hari</th><th>Nama Siswa</th></tr>
+      <tr><td>Senin</td><td>Mugi, Fikri, Nadya, Nur, Alifia</td></tr>
+      <tr><td>Selasa</td><td>Syifa, Rizki, Putri, Ahmad, Dinda</td></tr>
+      <tr><td>Rabu</td><td>Rina, Bayu, Siti, Adit, Joko</td></tr>
+      <tr><td>Kamis</td><td>Lia, Riko, Nanda, Wulan, Dika</td></tr>
+      <tr><td>Jumat</td><td>Sarah, Dwi, Ilham, Laila, Farhan</td></tr>
+      <tr><td>Sabtu</td><td>Semua siswa ikut membersihkan kelas</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Struktur Organisasi VII C</h2>
+    <ul>
+      <li><b>Wali Kelas:</b> Ummi Aida Adlina Sgr, S.Pd</li>
+      <li><b>Ketua:</b> Mugi Wijaya</li>
+      <li><b>Wakil:</b> Fikri Febrian</li>
+      <li><b>Sekretaris 1:</b> Nadya Latifah</li>
+      <li><b>Sekretaris 2:</b> Nur Hidayah</li>
+      <li><b>Bendahara 1:</b> Alifia Silfany</li>
+      <li><b>Bendahara 2:</b> Syifa Nur Alifa</li>
+      <li><b>Anggota:</b> Seluruh siswa kelas VII C</li>
+    </ul>
+  </section>
+
+  <section class="quiz">
+    <h2>🎮 Mini Game: Quiz Islami & Matematika</h2>
+    <div class="quizBox">
+      <p id="questionText"></p>
+      <input type="text" id="answerInput" placeholder="Tulis jawabanmu di sini">
+      <br>
+      <button onclick="checkAnswer()">Kirim</button>
+      <div id="progressBar"><div id="progress"></div></div>
+      <p id="quizResult"></p>
+    </div>
+  </section>
+
+  <footer>
+    <b>Pembuat: Feri Irawan</b>
+  </footer>
+</div>
+
+<script>
+  // LOGIN
+  function login() {
+    const name = document.getElementById('username').value.trim();
+    if(name === "") {
+      document.getElementById('loginError').textContent = "⚠ Nama lengkap wajib diisi!";
+    } else {
+      document.getElementById('loginPage').style.display = "none";
+      document.getElementById('mainContent').style.display = "block";
+      document.getElementById('welcome').textContent = "Selamat datang, " + name + " 👋";
+    }
+  }
+
+  // QUIZ
+  const quizData = [
+    {q: "Siapa nabi terakhir?", a: "nabi muhammad"},
+    {q: "5 + 7 = ?", a: "12"},
+    {q: "Al-Qur'an diturunkan dengan bahasa apa?", a: "arab"},
+    {q: "Khalifah pertama dalam Islam?", a: "abu bakar"},
+    {q: "10 x 2 = ?", a: "20"},
+    {q: "Surat pertama dalam Al-Qur'an?", a: "al-fatihah"},
+    {q: "9 x 9 = ?", a: "81"},
+    {q: "Tahun berdiri Al Washliyah?", a: "1930"},
+    {q: "Pendiri Al Washliyah?", a: "ismail banda"},
+    {q: "Hari raya Islam setelah Ramadhan?", a: "idul fitri"}
+  ];
+
+  let currentQ = 0;
+  let score = 0;
+  const questionText = document.getElementById('questionText');
+  const answerInput = document.getElementById('answerInput');
+  const quizResult = document.getElementById('quizResult');
+  const progress = document.getElementById('progress');
+
+  function loadQuestion() {
+    if(currentQ < quizData.length) {
+      questionText.textContent = (currentQ+1) + ". " + quizData[currentQ].q;
+      answerInput.value = "";
+      quizResult.textContent = "";
+      progress.style.width = ((currentQ/quizData.length) * 100) + "%";
+    } else {
+      let nilai = (score / quizData.length) * 100;
+      questionText.textContent = "🎉 Kuis selesai!";
+      answerInput.style.display = "none";
+      progress.style.width = "100%";
+      quizResult.textContent = "Nilai kamu: " + nilai;
+    }
+  }
+
+  function checkAnswer() {
+    const userAns = answerInput.value.trim().toLowerCase();
+    if(userAns === "") {
+      quizResult.textContent = "⚠ Jawaban tidak boleh kosong!";
+      return;
+    }
+    if(userAns === quizData[currentQ].a) {
+      score++;
+      quizResult.textContent = "✅ Benar!";
+    } else {
+      quizResult.textContent = "❌ Salah! Jawaban: " + quizData[currentQ].a;
+    }
+    currentQ++;
+    setTimeout(loadQuestion, 1200);
+  }
+
+  loadQuestion();
+</script>
+
+</body>
+</html>
